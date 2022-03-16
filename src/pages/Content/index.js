@@ -100,15 +100,16 @@ const Contents = props => {
           )}
         </Viewcontainer>
       ) : (
-        <View>
+        <>
           {content && content != undefined && (
-            <>
+            <View>
               <TitleText
                 title={title && title}
                 fontSize={24}
                 fontWeight={600}
               />
-              <AbsoluteView right={10}>
+
+              <AbsoluteView>
                 <Row>
                   <SmallTextBtn
                     text={!edit ? '편집' : '저장'}
@@ -116,19 +117,21 @@ const Contents = props => {
                       !edit ? openEditForm : () => editSubmit(content.id)
                     }
                   />
+                  <Spacer width={20} />
                   <SmallTextBtn
                     text={!edit ? '취소' : '삭제'}
                     onPress={() => deleteHandler(content.id)}
                   />
                 </Row>
               </AbsoluteView>
+
               <Spacer height={30} />
               <DateText date={content && updatedAt} />
 
               <Text>{description && description}</Text>
-            </>
+            </View>
           )}
-        </View>
+        </>
       )}
     </Viewcontainer>
   );
