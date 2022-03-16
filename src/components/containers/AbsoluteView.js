@@ -20,4 +20,5 @@ const AbsoluteViewWrap = styled.View`
   left: ${props => props.left || 0}px;
   right: ${props => props.right || 0}px;
   bottom: ${props => props.bottom || 0}px;
+  background-color: red;
 `;

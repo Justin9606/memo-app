@@ -6,17 +6,24 @@ import {
   TextInput,
   ActivityIndicator,
 } from 'react-native';
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import * as memoActions from '../../store/slices/memos';
 import {useDispatch, useSelector} from 'react-redux';
 
 //moment for date
 import moment from 'moment';
 
+//styled components
+import styled from 'styled-components';
+
+//common
+import SmallTextBtn from '../../components/common/Buttons/SmallTextBtn';
+
 //containers
 import Viewcontainer from '../../components/containers/ViewContainer';
 import Spacer from '../../components/containers/Spacer';
 import AbsoluteView from '../../components/containers/AbsoluteView';
+import Row from '../../components/containers/Row';
 
 //Texts
 import TitleText from '../../components/common/Texts/TitleText';
@@ -72,6 +79,7 @@ const Contents = props => {
 
   return (
     <Viewcontainer marginHorizontal={20}>
+      <Spacer height={30} />
       {edit ? (
         <Viewcontainer>
           {content && (
@@ -95,22 +103,35 @@ const Contents = props => {
         <View>
           {content && content != undefined && (
             <>
-              <Text>{title && title}</Text>
+              <TitleText
+                title={title && title}
+                fontSize={24}
+                fontWeight={600}
+              />
+              <AbsoluteView right={10}>
+                <Row>
+                  <SmallTextBtn
+                    text={!edit ? '편집' : '저장'}
+                    onPress={
+                      !edit ? openEditForm : () => editSubmit(content.id)
+                    }
+                  />
+                  <SmallTextBtn
+                    text={!edit ? '취소' : '삭제'}
+                    onPress={() => deleteHandler(content.id)}
+                  />
+                </Row>
+              </AbsoluteView>
+              <Spacer height={30} />
+              <DateText date={content && updatedAt} />
+
               <Text>{description && description}</Text>
-              <Text>{content && updatedAt}</Text>
             </>
           )}
         </View>
       )}
-      <Button
-        title={!edit ? '편집' : '저장'}
-        onPress={!edit ? openEditForm : () => editSubmit(content.id)}
-      />
-      <Button title="Delete" onPress={() => deleteHandler(content.id)} />
     </Viewcontainer>
   );
 };
 
 export default Contents;
-
-const styles = StyleSheet.create({});

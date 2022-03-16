@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Viewcontainer = ({children, marginHorizontal, style}) => {
+const Viewcontainer = ({children, marginHorizontal}) => {
   return <Container marginHorizontal={marginHorizontal}>{children}</Container>;
 };
 
