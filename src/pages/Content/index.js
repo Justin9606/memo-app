@@ -85,6 +85,7 @@ const Contents = props => {
                 onChangeText={title => setTitle(title)}
                 autoFocus={true}
                 multiline={true}
+                maxLength={20}
               />
               <Spacer height={30} />
               <DateText date={content && updatedAt} textAlign={'right'} />

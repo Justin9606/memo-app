@@ -62,6 +62,7 @@ const Create = props => {
           borderBottomWidth={1}
           multiline={true}
           paddingBottom={5}
+          maxLength={20}
         />
         <Spacer height={50} />
         <Label label={'설명'} />

@@ -16,6 +16,7 @@ const TextInput = ({
   borderBottomWidth,
   paddingBottom,
   autoFocus,
+  maxLength,
 }) => {
   return (
     <InputWrap>
@@ -26,6 +27,7 @@ const TextInput = ({
         editable={editable}
         multiline={multiline}
         fontSize={fontSize}
+        maxLength={maxLength}
         color={color}
         fontWeights={fontWeights}
         borderBottomWidth={borderBottomWidth}
