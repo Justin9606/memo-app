@@ -2,6 +2,10 @@
 
 APP NAME: MemoWash
 
+iOS
+DOWNLOAD THE APP:  https://i.diawi.com/a6Cf3p
+
+
 Package used to build:
     
    ## "@react-native-async-storage/async-storage": "^1.16.2", //used for saving data even the app is killed user able see the data unless deleting the app
