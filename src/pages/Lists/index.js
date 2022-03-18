@@ -83,6 +83,9 @@ const Lists = props => {
                 );
               })
               .reverse()}
+
+          {/* I am not using the Lottie Animation for Android cause
+              When I test on android emulator it showed very weird look but I could not tested on Real Device cause not having android device */}
           {Platform.OS === 'android' && (
             <View
               style={{
