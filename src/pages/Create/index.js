@@ -1,7 +1,7 @@
 //react
 import React, {useState} from 'react';
 //react native
-import {Alert} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
 //from slicer
 import * as memoActions from '../../store/slices/memos';
 //redux
@@ -51,27 +51,31 @@ const Create = props => {
 
   return (
     <Viewcontainer marginHorizontal={20}>
-      <Spacer height={30} />
-      <Label label={'제목'} />
-      <Spacer height={16} />
-      <Input
-        onChangeText={title => setTitle(title)}
-        placeholder={'제목을 입력해주세요'}
-        fontSize={16}
-        borderBottomWidth={1}
-        paddingBottom={5}
-      />
-      <Spacer height={20} />
-      <Label label={'설명'} />
-      <Spacer height={16} />
-      <Input
-        onChangeText={description => setDescription(description)}
-        placeholder={'설명을 입력해주세요'}
-        multiline={true}
-        fontSize={14}
-        borderBottomWidth={1}
-        paddingBottom={5}
-      />
+      <ScrollView style={{flex: 1}}>
+        <Spacer height={50} />
+        <Label label={'제목'} />
+        <Spacer height={16} />
+        <Input
+          onChangeText={title => setTitle(title)}
+          placeholder={'제목을 입력해주세요'}
+          fontSize={16}
+          borderBottomWidth={1}
+          multiline={true}
+          paddingBottom={5}
+        />
+        <Spacer height={50} />
+        <Label label={'설명'} />
+        <Spacer height={16} />
+
+        <Input
+          onChangeText={description => setDescription(description)}
+          placeholder={'설명을 입력해주세요'}
+          multiline={true}
+          fontSize={14}
+          borderBottomWidth={1}
+          paddingBottom={5}
+        />
+      </ScrollView>
       <LargeButton title="추가" onPress={createMemoHander} />
     </Viewcontainer>
   );

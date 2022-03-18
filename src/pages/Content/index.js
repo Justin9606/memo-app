@@ -122,7 +122,7 @@ const Contents = props => {
           )}
         </>
       )}
-      <AbsoluteView right={20} top={35}>
+      <AbsoluteView right={0} top={35}>
         <Row>
           <SmallTextBtn
             text={!edit ? '편집' : '저장'}

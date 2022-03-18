@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback, useRef} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {TouchableOpacity, ScrollView, View} from 'react-native';
 import * as memoActions from '../../store/slices/memos';
 import {useDispatch, useSelector} from 'react-redux';
@@ -14,6 +14,7 @@ import Spacer from '../../components/containers/Spacer';
 
 // Largebutton
 import LargeButton from '../../components/common/Buttons/LargeButton';
+import XDeleteBtn from '../../components/common/Buttons/XDeleBtn';
 
 //Texts
 import ContentText from '../../components/common/Texts/ContentText';
@@ -21,7 +22,7 @@ import TitleText from '../../components/common/Texts/TitleText';
 import DateText from '../../components/common/Texts/DateText';
 
 //delete svg
-import DeleteSvg from '../../assets/svg/delete.svg';
+
 import AbsoluteView from '../../components/containers/AbsoluteView';
 
 const Lists = props => {
@@ -72,8 +73,8 @@ const Lists = props => {
                         ellipsizeMode={'tail'}
                         numberOfLines={2}
                       />
-                      <AbsoluteView right={10} top={0}>
-                        <DeleteSvg onPress={() => deleteHandler(memo.id)} />
+                      <AbsoluteView right={0} top={0}>
+                        <XDeleteBtn onPress={() => deleteHandler(memo.id)} />
                       </AbsoluteView>
                       <Spacer height={30} />
                     </TouchableOpacity>

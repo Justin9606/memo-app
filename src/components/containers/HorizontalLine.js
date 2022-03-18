@@ -10,7 +10,7 @@ const Horizontalline = ({width, height}) => {
 export default Horizontalline;
 
 const Container = styled.View`
-  width: ${props => props.width || 327}px;
+  width: 100%;
   height: ${props => props.height || 1}px;
   background-color: #dae3e9;
   border-radius: 5px;
