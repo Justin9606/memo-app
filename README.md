@@ -2,9 +2,11 @@
 
 APP NAME: MemoWash
 
-iOS
+iOS:
 DOWNLOAD THE APP:  https://i.diawi.com/a6Cf3p
 
+ANDROID:
+DOWNLOAD THE APP:  https://i.diawi.com/TpzFns
 
 Package used to build:
     
