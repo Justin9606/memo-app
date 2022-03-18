@@ -36,7 +36,7 @@ Run iOS:
 !!! 
 
   ***I built the App and Created .ipa. You can easly DOWNLOAD THE APP AND INSTALL ON YOUR DEVICE AND USE IT LIKE A NORMAL APP
-    HERE IS THE LINK TO DOWNLOAD => https://i.diawi.com/Jm8C4f    
+    HERE IS THE LINK TO DOWNLOAD => https://i.diawi.com/a6Cf3p 
   ***
 
 1. Clone the project from Github
