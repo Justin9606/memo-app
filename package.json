@@ -23,7 +23,6 @@
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
     "react-native-svg-transformer": "^1.0.0",
-    "react-native-swipe-action-list": "^0.0.6",
     "react-native-uuid": "^2.0.1",
     "react-redux": "^7.2.6",
     "styled-components": "^5.3.3"
