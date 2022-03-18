@@ -1,7 +1,7 @@
 //react
 import React, {useState} from 'react';
 //react native
-import {Alert, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 //from slicer
 import * as memoActions from '../../store/slices/memos';
 //redux
@@ -29,13 +29,9 @@ const Create = props => {
 
   const createMemoHander = async () => {
     if (title === '') {
-      Alert.alert('제목을 입력해주세요', {
-        text: '학인',
-      });
+      alert('제목을 입력해주세요');
     } else if (description === '') {
-      Alert.alert('설명을 입력해주세요', {
-        text: '학인',
-      });
+      alert('설명을 입력해주세요');
     } else {
       const obj = {
         id: uuidv4().toUpperCase(),

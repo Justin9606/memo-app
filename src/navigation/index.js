@@ -12,7 +12,7 @@ import HeaderBackBtn from '../components/common/HeaderBackBtn/HeaderBackBtn';
 
 const Stack = createNativeStackNavigator();
 
-const AppStack = props => {
+const AppStack = () => {
   const memos = useSelector(state => state.memos);
 
   const setOptions = {
@@ -46,6 +46,7 @@ const AppStack = props => {
           component={Content}
           options={{
             headerTitle: `${memos.memo?.title}`,
+            title: `${memos.memo?.title}`,
           }}
         />
         <Stack.Screen
@@ -53,6 +54,7 @@ const AppStack = props => {
           component={Create}
           options={{
             headerTitle: '메모 작성',
+            title: '메모 작성',
           }}
         />
       </Stack.Navigator>

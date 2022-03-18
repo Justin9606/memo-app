@@ -1,5 +1,5 @@
 import React, {useEffect, useCallback} from 'react';
-import {TouchableOpacity, ScrollView, View} from 'react-native';
+import {TouchableOpacity, ScrollView, View, Platform} from 'react-native';
 import * as memoActions from '../../store/slices/memos';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -83,12 +83,22 @@ const Lists = props => {
                 );
               })
               .reverse()}
+          {Platform.OS === 'android' && (
+            <View
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: 50,
+              }}>
+              <TitleText title="첫 번째 메모를 추가하세요." />
+            </View>
+          )}
           {/* ***** I could give the lottie animation in here using turnary operator ? : like, if the memos.length is empty then show the lottie
         animation but Cause of the marginHorizontal it is not displaying correctly, That it is the reason I wrote separately *****  */}
         </ScrollView>
       </Viewcontainer>
 
-      {memos.length === 0 && (
+      {Platform.OS === 'ios' && memos.length === 0 && (
         <View
           style={{
             justifyContent: 'center',
