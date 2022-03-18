@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  ActivityIndicator,
-} from 'react-native';
+import {View, ActivityIndicator} from 'react-native';
 import React, {useState} from 'react';
 import * as memoActions from '../../store/slices/memos';
 import {useDispatch, useSelector} from 'react-redux';
@@ -13,11 +6,9 @@ import {useDispatch, useSelector} from 'react-redux';
 //moment for date
 import moment from 'moment';
 
-//styled components
-import styled from 'styled-components';
-
 //common
 import SmallTextBtn from '../../components/common/Buttons/SmallTextBtn';
+import Input from '../../components/common/TextInput/TextInput';
 
 //containers
 import Viewcontainer from '../../components/containers/ViewContainer';
@@ -42,6 +33,9 @@ const Contents = props => {
   const openEditForm = () => {
     setEdit(true);
   };
+  const cancelEdit = () => {
+    setEdit(false);
+  };
 
   const editSubmit = id => {
     const obj = {
@@ -56,8 +50,8 @@ const Contents = props => {
     dispatch(memoActions.getSingleData({}));
     props.navigation.navigate('Lists');
   };
+
   const deleteHandler = id => {
-    console.log(id);
     dispatch(memoActions.deleteMemoAction(id));
     dispatch(memoActions.getMemosAction());
     props.navigation.navigate('Lists');
@@ -81,58 +75,66 @@ const Contents = props => {
     <Viewcontainer marginHorizontal={20}>
       <Spacer height={30} />
       {edit ? (
-        <Viewcontainer>
+        <>
           {content && (
             <>
-              <TextInput
-                value={title}
+              <Input
+                defaultValue={title}
                 editable={true}
+                fontSize={24}
                 onChangeText={title => setTitle(title)}
+                autoFocus={true}
+                multiline={true}
               />
-              <TextInput
-                value={description}
+              <Spacer height={30} />
+              <DateText date={content && updatedAt} textAlign={'right'} />
+              <Spacer height={55} />
+              <Input
+                defaultValue={description}
                 editable={true}
+                multiline={true}
+                fontSize={14}
+                fontWeights={500}
                 onChangeText={description => {
                   setdescription(description);
                 }}
               />
             </>
           )}
-        </Viewcontainer>
+        </>
       ) : (
         <>
-          {content && content != undefined && (
+          {content && content !== undefined && (
             <View>
               <TitleText
                 title={title && title}
                 fontSize={24}
                 fontWeight={600}
               />
-
-              <AbsoluteView>
-                <Row>
-                  <SmallTextBtn
-                    text={!edit ? '편집' : '저장'}
-                    onPress={
-                      !edit ? openEditForm : () => editSubmit(content.id)
-                    }
-                  />
-                  <Spacer width={20} />
-                  <SmallTextBtn
-                    text={!edit ? '취소' : '삭제'}
-                    onPress={() => deleteHandler(content.id)}
-                  />
-                </Row>
-              </AbsoluteView>
-
               <Spacer height={30} />
-              <DateText date={content && updatedAt} />
-
-              <Text>{description && description}</Text>
+              <DateText date={content && updatedAt} textAlign={'right'} />
+              <Spacer height={60} />
+              <ContentText
+                content={description && description}
+                color={'#7f7e83'}
+              />
             </View>
           )}
         </>
       )}
+      <AbsoluteView right={20} top={35}>
+        <Row>
+          <SmallTextBtn
+            text={!edit ? '편집' : '저장'}
+            onPress={!edit ? openEditForm : () => editSubmit(content.id)}
+          />
+          <Spacer width={20} />
+          <SmallTextBtn
+            text={!edit ? '삭제' : '취소'}
+            onPress={!edit ? () => deleteHandler(content.id) : cancelEdit}
+          />
+        </Row>
+      </AbsoluteView>
     </Viewcontainer>
   );
 };

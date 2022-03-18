@@ -1,24 +1,26 @@
+//React
 import React from 'react';
 
+//styled
 import styled from 'styled-components';
 
-const Content = ({content, fontSize, color, ellipsizeMode, numberOfLines}) => {
+const Label = ({label, fontSize, color, ellipsizeMode, numberOfLines}) => {
   return (
-    <ContentText
+    <LabelText
       fontSize={fontSize}
       color={color}
       ellipsizeMode={ellipsizeMode}
       numberOfLines={numberOfLines}>
-      {content}
-    </ContentText>
+      {label}
+    </LabelText>
   );
 };
 
-export default Content;
+export default Label;
 
-const ContentText = styled.Text`
-  color: ${props => props.color};
+const LabelText = styled.Text`
+  color: ${props => props.color || '#000'};
   font-size: ${props => props.fontSize || 14}px;
   font-weight: 500;
-  margin-right: 40px;
+  justify-content: flex-start;
 `;

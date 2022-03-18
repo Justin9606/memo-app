@@ -39,11 +39,11 @@ export const getMemosAction = () => async dispatch => {
   }
 };
 
-export const createMemoActions = data => async (dispatch, getState) => {
+export const createMemoActions = (data: any) => async (dispatch, getState) => {
   const states = getState().memos.memos;
-  console.log(states);
+
   let copied = [...states];
-  console.log('CIDFDO', copied);
+
   copied.push(data);
   AsyncStorage.setItem('memos', JSON.stringify(copied)).then(x =>
     AsyncStorage.getItem('memos').then(val =>
@@ -66,8 +66,6 @@ export const editMemoAction =
   (id: string, data) => async (dispatch, getState) => {
     const states = getState().memos.memos;
     let copied = [...states];
-    console.log(copied);
-    console.log('DATA', id, data);
 
     const index = copied.findIndex(memo => memo.id === id);
     if (index != -1) {
@@ -87,7 +85,7 @@ export const getSingleData = (id: string) => async (dispatch, getState) => {
   const states = getState().memos.memos;
   let copied = [...states];
   const foundOne = copied.find(memo => memo.id == id);
-  console.log('FoundONe', foundOne);
+
   dispatch(editMemoReducer(foundOne));
 };
 

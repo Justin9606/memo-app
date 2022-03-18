@@ -9,6 +9,5 @@ export default Viewcontainer;
 
 const Container = styled.View`
   flex: 1;
-
-  padding-horizontal: ${props => props.marginHorizontal || 0}px;
+  margin-horizontal: ${props => props.marginHorizontal || 0}px;
 `;

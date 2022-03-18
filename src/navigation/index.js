@@ -21,6 +21,7 @@ const AppStack = props => {
     },
     headerTitleStyle: {color: 'white', fontSize: 16, fontWeight: '600'},
     headerBackTitleVisible: false,
+    contentStyle: {backgroundColor: '#fff'},
     headerLeft: () => <HeaderBackBtn />,
   };
   return (
@@ -34,7 +35,9 @@ const AppStack = props => {
           name="Lists"
           component={Lists}
           options={{
-            headerTitle: `메모리스트 (${memos.memos.length})`,
+            headerTitle: `메모리스트 ${
+              memos.memos.length > 0 ? `(${memos.memos.length})` : ''
+            }`,
             headerLeft: () => null,
           }}
         />
@@ -48,7 +51,9 @@ const AppStack = props => {
         <Stack.Screen
           name="Create"
           component={Create}
-          options={{headerTitle: '메모 작성'}}
+          options={{
+            headerTitle: '메모 작성',
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

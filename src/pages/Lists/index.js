@@ -1,7 +1,10 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {TouchableOpacity, Text, View, ScrollView} from 'react-native';
+import React, {useEffect, useCallback, useRef} from 'react';
+import {TouchableOpacity, ScrollView, View} from 'react-native';
 import * as memoActions from '../../store/slices/memos';
 import {useDispatch, useSelector} from 'react-redux';
+
+//react-native lottie
+import LottieView from 'lottie-react-native';
 
 //containers
 import Viewcontainer from '../../components/containers/ViewContainer';
@@ -17,11 +20,13 @@ import ContentText from '../../components/common/Texts/ContentText';
 import TitleText from '../../components/common/Texts/TitleText';
 import DateText from '../../components/common/Texts/DateText';
 
+//delete svg
+import DeleteSvg from '../../assets/svg/delete.svg';
+import AbsoluteView from '../../components/containers/AbsoluteView';
+
 const Lists = props => {
   const dispatch = useDispatch();
   const memos = useSelector(state => state.memos.memos);
-
-  console.log('Memos', memos);
 
   const getMemos = useCallback(async () => {
     dispatch(memoActions.getMemosAction());
@@ -36,43 +41,75 @@ const Lists = props => {
     dispatch(memoActions.getSingleData(memo.id));
   };
 
+  const deleteHandler = id => {
+    dispatch(memoActions.deleteMemoAction(id));
+    dispatch(memoActions.getMemosAction());
+    props.navigation.navigate('Lists');
+  };
+
   return (
-    <Viewcontainer marginHorizontal={20}>
-      <ScrollView style={{flex: 1}}>
-        {memos[0] !== null && memos.length > 0 ? (
-          memos
-            .map(memo => {
-              return (
-                <>
-                  <Spacer height={30} />
-                  <TouchableOpacity
-                    key={memo.id}
-                    onPress={() => detailHander(memo)}>
-                    <Row>
-                      <TitleText title={memo.title} />
-                      <Spacer width={10} />
-                      <DateText date={memo.updatedAt} />
-                    </Row>
-                    <Spacer height={10} />
-                    <ContentText content={memo.description} />
+    <>
+      <Viewcontainer marginHorizontal={20}>
+        <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+          {memos[0] !== null &&
+            memos.length > 0 &&
+            memos
+              .map(memo => {
+                return (
+                  <View key={memo.id}>
                     <Spacer height={30} />
-                  </TouchableOpacity>
-                  <Horizontalline />
-                </>
-              );
-            })
-            .reverse()
-        ) : (
-          <View>
-            <Text>There is no any memo yet</Text>
-          </View>
-        )}
-      </ScrollView>
+                    <TouchableOpacity onPress={() => detailHander(memo)}>
+                      <Row>
+                        <TitleText title={memo.title} />
+                        <Spacer width={10} />
+                        <DateText date={memo.updatedAt} />
+                      </Row>
+                      <Spacer height={10} />
+
+                      <ContentText
+                        content={memo.description}
+                        color={'#7f7e83'}
+                        ellipsizeMode={'tail'}
+                        numberOfLines={2}
+                      />
+                      <AbsoluteView right={10} top={0}>
+                        <DeleteSvg onPress={() => deleteHandler(memo.id)} />
+                      </AbsoluteView>
+                      <Spacer height={30} />
+                    </TouchableOpacity>
+                    <Horizontalline />
+                  </View>
+                );
+              })
+              .reverse()}
+          {/* ***** I could give the lottie animation in here using turnary operator ? : like, if the memos.length is empty then show the lottie
+        animation but Cause of the marginHorizontal it is not displaying correctly, That it is the reason I wrote separately *****  */}
+        </ScrollView>
+      </Viewcontainer>
+
+      {memos.length === 0 && (
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <LottieView
+            source={require('../../assets/lottie/empty.json')}
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
+            colorFilters={{backgroundColor: 'transparent'}}
+            autoPlay
+            loop
+          />
+        </View>
+      )}
       <LargeButton
         title={'추가'}
         onPress={() => props.navigation.navigate('Create')}
       />
-    </Viewcontainer>
+    </>
   );
 };
 

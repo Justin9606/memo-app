@@ -3,8 +3,10 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
+
 target 'getwashswat' do
   config = use_native_modules!
+ pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
 
   use_react_native!(
     :path => config[:reactNativePath],

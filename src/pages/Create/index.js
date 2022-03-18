@@ -1,11 +1,26 @@
-import {TextInput, Button, Text, View} from 'react-native';
+//react
 import React, {useState} from 'react';
+//react native
+import {Alert} from 'react-native';
+//from slicer
 import * as memoActions from '../../store/slices/memos';
+//redux
 import {useDispatch} from 'react-redux';
 //Random uuid
 import {v4 as uuidv4} from 'uuid';
 //moment for date
 import moment from 'moment';
+
+//containers
+import Viewcontainer from '../../components/containers/ViewContainer';
+import Spacer from '../../components/containers/Spacer';
+
+//common
+import Input from '../../components/common/TextInput/TextInput';
+import LargeButton from '../../components/common/Buttons/LargeButton';
+
+//texts
+import Label from '../../components/common/Texts/LabelText';
 
 const Create = props => {
   const dispatch = useDispatch();
@@ -13,29 +28,52 @@ const Create = props => {
   const [description, setDescription] = useState('');
 
   const createMemoHander = async () => {
-    const obj = {
-      id: uuidv4().toUpperCase(),
-      title,
-      description,
-      createdAt: moment().format('YYYY-MM-DD'),
-      updatedAt: moment().format('YYYY-MM-DD'),
-    };
-    dispatch(memoActions.createMemoActions(obj));
-    props.navigation.navigate('Lists');
+    if (title === '') {
+      Alert.alert('제목을 입력해주세요', {
+        text: '학인',
+      });
+    } else if (description === '') {
+      Alert.alert('설명을 입력해주세요', {
+        text: '학인',
+      });
+    } else {
+      const obj = {
+        id: uuidv4().toUpperCase(),
+        title,
+        description,
+        createdAt: moment().format('YYYY-MM-DD'),
+        updatedAt: moment().format('YYYY-MM-DD'),
+      };
+      dispatch(memoActions.createMemoActions(obj));
+      props.navigation.navigate('Lists');
+    }
   };
 
   return (
-    <View style={{flex: 1}}>
-      <TextInput
+    <Viewcontainer marginHorizontal={20}>
+      <Spacer height={30} />
+      <Label label={'제목'} />
+      <Spacer height={16} />
+      <Input
         onChangeText={title => setTitle(title)}
-        placeholder="Add title"
+        placeholder={'제목을 입력해주세요'}
+        fontSize={16}
+        borderBottomWidth={1}
+        paddingBottom={5}
       />
-      <TextInput
+      <Spacer height={20} />
+      <Label label={'설명'} />
+      <Spacer height={16} />
+      <Input
         onChangeText={description => setDescription(description)}
-        placeholder="Add description"
+        placeholder={'설명을 입력해주세요'}
+        multiline={true}
+        fontSize={14}
+        borderBottomWidth={1}
+        paddingBottom={5}
       />
-      <Button title="Submit" onPress={createMemoHander} />
-    </View>
+      <LargeButton title="추가" onPress={createMemoHander} />
+    </Viewcontainer>
   );
 };
 
