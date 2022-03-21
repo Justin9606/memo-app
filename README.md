@@ -1,5 +1,7 @@
 # memowash
 
+*** In case If you have a problem with Signing Team  then try to change the Bundle identifier of the app ****
+
 APP NAME: MemoWash
 
 DEMO VIDEO: https://user-images.githubusercontent.com/54047658/159163311-17f187bc-1251-4458-bc1a-49e6aa5e8a03.MP4
