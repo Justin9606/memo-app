@@ -1,6 +1,12 @@
 # memowash
 
-*** In case If you have a problem with Signing Team (After you have set your team)  then try to change the Bundle identifier of the app and set the Team again ****
+*** In case If you have a problem with Signing Team (After you have set your team)  then try to change the Bundle identifier of the app and set the Team again, Like shown above pictures ****
+1. Problem:
+[Screen Shot 2022-03-21 at 9 22 12 AM](https://user-images.githubusercontent.com/54047658/159192533-6899ba0c-bfea-481c-88ce-12bb5d2345bb.png)
+2. Solution:
+[Uploading Screen Shot 2022-03-21 at 9.22.31 AM.png…]()
+
+
 
 APP NAME: MemoWash
 
