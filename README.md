@@ -21,7 +21,7 @@ iOS:
 DOWNLOAD THE APP:  https://i.diawi.com/a6Cf3p
 
 ANDROID:
-DOWNLOAD THE APP:  https://i.diawi.com/TpzFns
+DOWNLOAD THE APP:  https://i.diawi.com/PsfH87
 
 Package used to build:
     
