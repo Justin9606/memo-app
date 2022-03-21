@@ -18,7 +18,7 @@ DEMO VIDEO: https://user-images.githubusercontent.com/54047658/159163311-17f187b
 
 
 iOS:
-DOWNLOAD THE APP:  https://i.diawi.com/a6Cf3p
+DOWNLOAD THE APP:  https://i.diawi.com/YCGcTj
 
 ANDROID:
 DOWNLOAD THE APP:  https://i.diawi.com/5pNVKt
