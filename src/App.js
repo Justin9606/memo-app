@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Platform} from "react-native"
 import {Provider} from 'react-redux';
 import store from './store';
 import AppStack from './navigation';
