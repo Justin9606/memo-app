@@ -1,6 +1,6 @@
 # memowash
 
-*** In case If you have a problem with Signing Team  then try to change the Bundle identifier of the app ****
+*** In case If you have a problem with Signing Team (After you have set your team)  then try to change the Bundle identifier of the app and set the Team again ****
 
 APP NAME: MemoWash
 
