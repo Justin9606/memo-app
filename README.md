@@ -2,9 +2,11 @@
 
 *** In case If you have a problem with Signing Team (After you have set your team)  then try to change the Bundle identifier of the app and set the Team again, Like shown above pictures ****
 1. Problem:
-[Screen Shot 2022-03-21 at 9 22 12 AM](https://user-images.githubusercontent.com/54047658/159192533-6899ba0c-bfea-481c-88ce-12bb5d2345bb.png)
+![Screen Shot 2022-03-21 at 9 22 12 AM](https://user-images.githubusercontent.com/54047658/159192656-245ef111-b089-464b-b1c8-6469869b7d8d.png)
+
 2. Solution:
-[Uploading Screen Shot 2022-03-21 at 9.22.31 AM.png…]()
+![Screen Shot 2022-03-21 at 9 22 31 AM](https://user-images.githubusercontent.com/54047658/159192651-4b9fc317-a371-4158-ac18-d87db534963c.png)
+
 
 
 
